@@ -23,7 +23,10 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm install
+
+RUN npm install --force
+RUN rm -rf node_modules/sharp
+RUN npm install --force --platform=linux --arch=x64 sharp
 
 COPY . .
 RUN npm run build
@@ -38,5 +41,4 @@ RUN chmod +x /start_production
 
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD npx sequelize db:migrate \
-  && node dist/server.js
+CMD node dist/server.js
