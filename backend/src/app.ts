@@ -3,7 +3,7 @@ import "./bootstrap";
 import "reflect-metadata";
 import "express-async-errors";
 import express, { Request, Response, NextFunction } from "express";
-import cors from "cors";
+const cors = require("cors");
 import cookieParser from "cookie-parser";
 
 import helmet from "helmet";
@@ -97,8 +97,19 @@ app.use("/admin/queues", bullRoute);
 // }, cors());
 // }
 
-// app.use(cors({ origin: "*" }));
-app.use(cors());
+app.use(cors({ origin: "*" }));
+// app.use(cors({
+//   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+// }));
+// app.use(
+//   cors({
+//     allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
+//     exposedHeaders: ["authorization"], // you can change the headers
+//     origin: "*",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     preflightContinue: false
+//   })
+// );
 // app.use(
 //   cors({
 //     credentials: true,

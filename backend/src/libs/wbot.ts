@@ -122,7 +122,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
       const wbot = new Client({
         authStrategy: new LocalAuth({ clientId: `wbot-${whatsapp.id}` }),
         puppeteer: {
-          // headless: false,
+          // headless: true,
           executablePath: process.env.CHROME_BIN || undefined,
           args: [`--user-agent=${DefaultOptions.userAgent}`, ...minimal_args]
         }

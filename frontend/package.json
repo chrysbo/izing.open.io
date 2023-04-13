@@ -1,11 +1,13 @@
 {
-  "name": "izing",
+  "name": "recebaai",
   "version": "1.9.0",
   "description": "Bot Multiatendimento, multicanais e multiempresas.",
-  "productName": "IZING",
+  "productName": "Receba.AI",
   "author": "Durans <lumardyelson@gmail.com>",
   "private": false,
   "scripts": {
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && quasar build",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && quasar c && quasar d",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },

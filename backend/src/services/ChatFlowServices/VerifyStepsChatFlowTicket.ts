@@ -11,6 +11,7 @@ import BuildSendMessageService from "./BuildSendMessageService";
 import DefinedUserBotService from "./DefinedUserBotService";
 // import SendWhatsAppMessage from "../SendWhatsAppMessage";
 import IsContactTest from "./IsContactTest";
+import { logger } from "../../utils/logger";
 
 const isNextSteps = async (
   ticket: Ticket,
@@ -232,6 +233,7 @@ const VerifyStepsChatFlowTicket = async (
 ): Promise<void> => {
   let celularTeste; // ticket.chatFlow?.celularTeste;
 
+  logger.info(`CHATBOT | INFO: ${JSON.stringify(ticket)}\nMSG:${JSON.stringify(msg)}`);
   if (
     ticket.chatFlowId &&
     ticket.status === "pending" &&
@@ -259,7 +261,7 @@ const VerifyStepsChatFlowTicket = async (
           String(c).toLowerCase().trim()
         );
         const message = String(msg.body).toLowerCase().trim();
-        return newConditions.includes(message);
+        return newConditions.includes(message) || conditions.type == 'US';
       });
 
       if (
@@ -268,6 +270,7 @@ const VerifyStepsChatFlowTicket = async (
       )
         return;
 
+      logger.info(`CHATBOT | ${ticket.isCreated} Condition:${JSON.stringify(stepCondition)}`);
       if (stepCondition && !ticket.isCreated) {
         // await CreateAutoReplyLogsService(stepAutoReplyAtual, ticket, msg.body);
         // Verificar se rotina em teste

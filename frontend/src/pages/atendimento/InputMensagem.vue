@@ -380,6 +380,7 @@ export default {
     },
     mensagemRapidaSelecionada (mensagem) {
       this.textChat = mensagem
+      this.visualizarMensagensRapidas = false
       setTimeout(() => {
         this.$refs.inputEnvioMensagem.focus()
       }, 300)

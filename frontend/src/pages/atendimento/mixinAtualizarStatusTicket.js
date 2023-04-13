@@ -72,13 +72,14 @@ export default {
                 color: 'white'
               }]
             })
+
             this.$store.commit('TICKET_FOCADO', {})
             if (status !== 'open') this.$router.push({ name: 'chat-empty' })
           })
           .catch(error => {
             this.loading = false
             console.error(error)
-            this.$notificarErro('Não foi possível atuaizar o status', error)
+            this.$notificarErro('Não foi possível atualizar o status', error)
           })
       })
     }

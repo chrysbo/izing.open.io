@@ -98,7 +98,7 @@ const ListTicketsService = async ({
     const newArray: number[] = [];
     queuesIds.forEach(i => {
       const idx = queuesIdsUser.indexOf(+i);
-      if (idx) {
+      if (idx >= 0) {
         newArray.push(+i);
       }
     });

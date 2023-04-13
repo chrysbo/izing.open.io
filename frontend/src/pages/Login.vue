@@ -1,5 +1,5 @@
 <template>
-  <q-layout style="background: #f8f8f8">
+  <q-layout style="background: #25b1ec;">
     <q-page-container>
       <q-page class="flex justify-center items-center">
         <q-ajax-bar
@@ -10,7 +10,7 @@
         <q-card
           bordered
           class="card q-pa-md shadow-10"
-          style="border-top: 5px solid #3E72AF"
+          style="border-top: 5px solid #25b1ec"
         >
 
           <q-card-section class="text-primary text-center">

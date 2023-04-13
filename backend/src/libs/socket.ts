@@ -12,7 +12,8 @@ let io: SocketIO;
 export const initIO = (httpServer: Server): SocketIO => {
   io = new SocketIO(httpServer, {
     cors: {
-      origin: "*"
+      origin: "*",
+      methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
     },
     pingTimeout: 180000,
     pingInterval: 60000
