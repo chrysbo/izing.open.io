@@ -10,6 +10,15 @@ const server = app.listen(PORTA, () => {
   logger.info(`Server started on port: ${PORTA}`);
 });
 
+app.get('/', (req, res) => {
+  res.send('Serviços do RecebaAI | API')
+})
+
+app.get('/healthcheck', (req, res) => {
+  res.status(200).send('Ok');
+})
+
+
 initIO(server);
 StartAllWhatsAppsSessions();
 gracefulShutdown(server);

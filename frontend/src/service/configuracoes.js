@@ -9,8 +9,9 @@ export function ListarConfiguracoes (params) {
 }
 
 export function AlterarConfiguracao (data) {
+  console.log(data)
   return request({
-    url: `/settings/${data.Key}/`,
+    url: `/settings/${data.key}/`,
     method: 'put',
     data
   })
